@@ -10,16 +10,19 @@ def main():
     while option == -1:
         answer = input("On temperature conversions do you want degrees Kelvin? (Y/n): ")
         if (
-            answer.startswith("Y").upper()
-            and len(answer) > 0
+            len(answer) > 0
             and answer[0].upper() == "Y"
         ):
             do_kelvin = True
+            option = 0
+        elif len(answer) > 0 and answer[0].upper() == "N":
+            do_kelvin = False
+            option = 1
         else:
             print("Illegal input try again ")
             option = -1
 
-        choice = get_choice()
+    choice = get_choice()
     while choice != 0:
         try:
             if choice == 1:
